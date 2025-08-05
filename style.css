@@ -7,8 +7,10 @@
     font-family: "Montserrat", sans-serif;
   font-weight: 300;
   font-style: normal;
+  overflow: scroll;
 }
 #menu{
+    color: #8B0000;
     display:none;
     margin-left:auto;
     margin-right:35px;
@@ -270,4 +272,18 @@
   height: 100%;
   pointer-events: none; /* So users can still click through */
   z-index:999;
+}
+.skill h1,h2{
+    color:#8B0000;
+}
+.skill li{
+    color:white;
+}
+.active{
+    color:#4f0000;
+    text-decoration: underline;
+}
+.rest{
+    color:white;
+    text-decoration:none;
 }

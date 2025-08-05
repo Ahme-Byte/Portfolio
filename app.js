@@ -20,20 +20,16 @@ menu.addEventListener("touchstart",function(){
 //Adding current state for both navi and nav bar
 let nav=document.querySelector(".nav");
 let element=document.querySelectorAll(".anchor");
-element[4].style.color="#4f0000";
-element[4].style.textDecoration="underline";
-element[0].style.color="#4f0000";
-element[0].style.textDecoration="underline";
+element[4].classList.add("active");
+element[0].classList.add("active");
 nav.addEventListener("click",state);
 navi.addEventListener("touchstart",state);
 function state(e){
 if(e.target.classList.contains("anchor")){
-    for (let ele of element){
-        ele.style.color="white";
-        ele.style.textDecoration="none";
+    for(let ele of element){
+      ele.classList.remove("active");
     }
-    e.target.style.color="#4f0000";
-    e.target.style.textDecoration="underline";
+    e.target.classList.add("active");
 }
 };
 
@@ -47,14 +43,12 @@ function change(){
     pic.classList.remove("fade");
     void pic.offsetWidth;
     if(!ptoggle){
-  //  pic.style.backgroundImage="url('/content/fb.jpg')";
     pic.classList.add("fade");
     setTimeout(()=>{
         pic.style.backgroundImage="url('/content/fb.jpg')";
     },500);
     ptoggle=true;
     }else{
-       // pic.style.backgroundImage="url('/content/pic.jpeg')";
         pic.classList.add("fade");
             setTimeout(()=>{
       pic.style.backgroundImage="url('/content/pic.jpeg')";
@@ -83,59 +77,29 @@ function resizeCanvas() {
 }
 window.addEventListener('resize', resizeCanvas);
 resizeCanvas();
-
 let snowflakes = [];
-
-function createSnowflakes(count = 5) {
+function createSnowflakes(count = 10) {
   snowflakes = [];
   for (let i = 0; i < count; i++) {
     snowflakes.push({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       radius: Math.random() * 3 + 1,
-      speed: Math.random() * 2+1 
+      speed: Math.random() * 2 + 1
     });
   }
 }
-
-function getFreeZones() {
-  const freeElements = document.querySelectorAll('.free');
-  return Array.from(freeElements).map(el => {
-    const rect = el.getBoundingClientRect();
-    return {
-      left: rect.left + window.scrollX,
-      right: rect.right + window.scrollX,
-      top: rect.top + window.scrollY,
-      bottom: rect.bottom + window.scrollY
-    };
-  });
-}
-
 function drawSnowflakes() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = 'white';
+  ctx.fillStyle = '#8B0000';
   ctx.beginPath();
-
-  const masks = getFreeZones();
-
   for (let flake of snowflakes) {
-    let blocked = masks.some(mask =>
-      flake.x >= mask.left &&
-      flake.x <= mask.right &&
-      flake.y >= mask.top &&
-      flake.y <= mask.bottom
-    );
-
-    if (!blocked) {
-      ctx.moveTo(flake.x, flake.y);
-      ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
-    }
+    ctx.moveTo(flake.x, flake.y);
+    ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
   }
-
   ctx.fill();
   moveSnowflakes();
 }
-
 function moveSnowflakes() {
   for (let flake of snowflakes) {
     flake.y += flake.speed;
@@ -145,6 +109,5 @@ function moveSnowflakes() {
     }
   }
 }
-
 createSnowflakes();
 setInterval(drawSnowflakes, 30);
