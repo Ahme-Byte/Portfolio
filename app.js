@@ -46,7 +46,6 @@ if(count[4]==="1"){
   element[9].classList.add("active");
 };
 
-
 //Addition of my pic
 let ptoggle=false; 
 let ahmi=document.querySelector(".ahmi");
