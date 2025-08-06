@@ -20,7 +20,7 @@ menu.addEventListener("touchstart",function(){
 //Adding current state for both navi and nav barco
 let nav=document.querySelector(".nav");
 let element=document.querySelectorAll(".anchor");
-let page=["page1","page2","page3","page4"];
+let page=["page1","page2","page3","page4","page5"];
 let count="";
 for(let i=0;i<page.length;i++){
  let id=document.getElementById(page[i]);
@@ -31,16 +31,19 @@ for(let i=0;i<page.length;i++){
 };
 if(count[4]==="1"){
   element[0].classList.add("active");
-  element[4].classList.add("active");
+  element[5].classList.add("active");
 }else if(count[4]==="2"){
   element[1].classList.add("active");
-  element[5].classList.add("active");
+  element[6].classList.add("active");
 }else if(count[4]==="3"){
   element[2].classList.add("active");
-  element[6].classList.add("active");
+  element[7].classList.add("active");
 }else if(count[4]==="4"){
   element[3].classList.add("active");
-  element[7].classList.add("active");
+  element[8].classList.add("active");
+}else if(count[4]==="5"){
+  element[4].classList.add("active");
+  element[9].classList.add("active");
 };
 
 

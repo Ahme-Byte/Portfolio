@@ -276,7 +276,7 @@
 .skill h1,h2{
     color:#8B0000;
 }
-.skill li{
+.skill li,li{
     color:white;
 }
 .active{
