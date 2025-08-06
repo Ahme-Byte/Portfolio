@@ -17,21 +17,32 @@ menu.addEventListener("touchstart",function(){
     }
 });
 
-//Adding current state for both navi and nav bar
+//Adding current state for both navi and nav barco
 let nav=document.querySelector(".nav");
 let element=document.querySelectorAll(".anchor");
-element[4].classList.add("active");
-element[0].classList.add("active");
-nav.addEventListener("click",state);
-navi.addEventListener("touchstart",state);
-function state(e){
-if(e.target.classList.contains("anchor")){
-    for(let ele of element){
-      ele.classList.remove("active");
-    }
-    e.target.classList.add("active");
-}
+let page=["page1","page2","page3","page4"];
+let count="";
+for(let i=0;i<page.length;i++){
+ let id=document.getElementById(page[i]);
+ if(id && id.id.length>3){
+     count=id.id;
+     break;
+ }
 };
+if(count[4]==="1"){
+  element[0].classList.add("active");
+  element[4].classList.add("active");
+}else if(count[4]==="2"){
+  element[1].classList.add("active");
+  element[5].classList.add("active");
+}else if(count[4]==="3"){
+  element[2].classList.add("active");
+  element[6].classList.add("active");
+}else if(count[4]==="4"){
+  element[3].classList.add("active");
+  element[7].classList.add("active");
+};
+
 
 //Addition of my pic
 let ptoggle=false; 
