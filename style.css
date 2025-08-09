@@ -1,13 +1,13 @@
 /*Left side of code styling starts here*/
 #hero{
     background-color:#000;
-    height:100vh;
     width:100%;
     display: flex;
     font-family: "Montserrat", sans-serif;
   font-weight: 300;
   font-style: normal;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x:hidden;
 }
 #menu{
     color: #8B0000;
@@ -85,11 +85,10 @@
 /* Responsiveness of left side of part for mobiles */
 @media (max-width:767px){
     #hero{
-    height:100vh;
     width:100%;
      display: flex;
     flex-direction:column;
-    align-items:center;
+    align-items:flex-start;
 }
 #menu{
     display:block;
@@ -107,16 +106,16 @@
     transition:all 0.3s ease;
 }
 .left{
-    width:100%;
-    height:85vh;
+    width:70%;
+    height: auto;
     padding-left:50px;
     box-sizing:border-box;
-    margin-top:-100px;
+    margin-top:-220px;
 
 }
 .pic{
-    width:70%;
-    height:70%;
+    width:100%;
+    height: 40vh;
     border-radius:50%;
     border:5px solid black;
     background-image:url("/content/pic.jpeg");
@@ -127,8 +126,8 @@
 /* Responsiveness of left side of part for tablets */
 @media (min-width:768px) and (max-width:1024px){
     #hero{
-    height:100vh;
     width:100%;
+    height:100vh;
     display: flex;
     flex-direction:column;
     align-items:center;
@@ -150,23 +149,24 @@
     transition:all 0.3s ease;
 }
 .left{
-    width:100%;
-    height:85vh;
+    width:65%;
+    height:auto;
     padding-left:50px;
     box-sizing:border-box;
     margin-top:-100px;
 
 }
 .pic{
-    width:65%;
-    height:80%;
-    border-radius:50%;
+    width:100%;
+    height:40vh;
+    border-radius:70%;
     border:5px solid black;
     background-image:url("/content/pic.jpeg");
     background-size:cover;
     background-position:center;
 }
 }
+
 /*Right side of the code styling starts*/
 .right{
     width:50%;
@@ -232,10 +232,14 @@
 @media (max-width:767px){
 .right{
     width:100%;
+    height:auto;
+    gap:0px;
+    justify-content:space-evenly;
 }
 .content{
     width:100%;
-    padding-top:40px;
+    height:auto;
+    padding-top:0;
     box-sizing: border-box;
     text-align:center;
 }
@@ -243,17 +247,23 @@
     display:none;
 }
 .logo{
-    margin-top:45px;
+    justify-content: space-evenly;
+    width:80%;
+    margin-top:0;
 }
 }
 /* Responsiveness of right side of part for tablets */
 @media (min-width:768px) and (max-width:1024px){
 .right{
     width:100%;
+    height:auto;
+    gap:0;
+    justify-content:space-around;
 }
 .content{
     width:100%;
-    padding-top:40px;
+    height:auto;
+    padding-top:0px;
     padding-left:20px;
     box-sizing: border-box;
 }
@@ -261,7 +271,7 @@
     display:none;
 }
 .logo{
-    margin-top:50px;
+    margin-top:10px;
 }
 }
 #snowCanvas {

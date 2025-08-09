@@ -5,6 +5,7 @@ let toggle=false;
 menu.addEventListener("touchstart",function(){
     const width=window.innerWidth;
     if(!toggle){
+      navi.style.display="flex";
         if (width <= 767){
          navi.style.marginRight="0px";
         }else{
@@ -16,6 +17,22 @@ menu.addEventListener("touchstart",function(){
         toggle=false;
     }
 });
+
+navi.addEventListener("touchstart",function(e){
+  if (e.target.classList.contains("anchor")){
+          if(e.target.innerText==="Home"){
+            window.open("index.html");
+          }else if (e.target.innerText==="Skills"){
+            window.open("skills.html");
+          }else if(e.target.innerText==="Education"){
+            window.open("education.html");
+          }else if (e.target.innerText==="Hobbies"){
+            window.open("hobby.html");
+          }else{
+            window.open("Contact.html")
+          }
+  }    
+}); 
 
 //Adding current state for both navi and nav barco
 let nav=document.querySelector(".nav");
@@ -50,9 +67,7 @@ if(count[4]==="1"){
 let ptoggle=false; 
 let ahmi=document.querySelector(".ahmi");
 let pic=document.querySelector(".pic");
-ahmi.addEventListener("click",change);
-ahmi.addEventListener("touchstart",change);
-function change(){
+ahmi.addEventListener("pointerdown",function change(){
     pic.classList.remove("fade");
     void pic.offsetWidth;
     if(!ptoggle){
@@ -68,7 +83,7 @@ function change(){
     },500);
           ptoggle=false;
     }
-};
+});
 
 //Snowfall effect code starts here
 const canvas = document.createElement('canvas');
